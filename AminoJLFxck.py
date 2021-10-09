@@ -14,17 +14,17 @@ client.auth(email=email, password=password)
 clients = client.my_communities()
 for x, name in enumerate(clients.name, 1):
     print(f"{x}.{name}")
-ndc_Id = clients.ndc_Id[int(input("Select the community >> ")) - 1]
-chats = client.my_chat_threads(ndc_Id=ndc_Id, size=100)
+ndcId = clients.ndcId[int(input("Select the community >> ")) - 1]
+chats = client.my_chat_threads(ndcId=ndcId, size=100)
 for z, title in enumerate(chats.title, 1):
     print(f"{z}.{title}")
-thread_Id = chats.thread_Id[int(input("Select The Chat >> ")) - 1]
+threadId = chats.threadId[int(input("Select The Chat >> ")) - 1]
 
 
 def join_and_leave():
     try:
-        client.leave_thread(ndc_Id=ndc_Id, thread_Id=thread_Id)
-        client.join_thread(ndc_Id=ndc_Id, thread_Id=thread_Id)
+        client.leave_thread(ndcId=ndcId, threadId=threadId)
+        client.join_thread(ndcId=ndcId, threadId=threadId)
     except BaseException:
         return
 
